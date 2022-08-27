@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../header/mainMenu.h"
+#include "../header/menus.h"
 #include "../header/util.h"
 
 void mainOptions(char op);
@@ -32,18 +32,24 @@ void mainOptions(char op){
 		return;
 	}
 	else if(op == '1'){
-		//[1]gerenciamento de profissionais
+		menuProfissionais();
+		getchar();
 	}
 	else if(op == '2'){
-		//[2]gerenciamento de clientes
+		menuClientes();
+		getchar();
 	}
 	else if(op == '3'){
-		//[3]gerenciamento de consultas
+		menuConsultas();
+		getchar();
 	}
 	else if(op == '4'){
-		//[4]relatorio de vendas
+		rendimento();
+		getchar();
 	}
 	else{
-		//[5]creditos   
+		creditos();
+		getchar();
 	}
+	mainMenu();
 }

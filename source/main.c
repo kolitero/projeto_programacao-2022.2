@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../header/mainMenu.h"
+#include "../header/menus.h"
 
-void mainMenu(void);
 
 int main(void) {
 	mainMenu();
