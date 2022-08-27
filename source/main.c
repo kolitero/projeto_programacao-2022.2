@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header/mainMenu.h"
+#include "../header/mainMenu.h"
 
 void mainMenu(void);
 
