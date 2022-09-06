@@ -19,10 +19,9 @@ typedef struct{
 
 void profissionaisOptions(char op);
 void adicionarProfissional(void);
-void excluirProfissional(void);
-void excluirProfissional(void);
-void deletarProfissional(const char* name);
-int lenSizeProfissional(void);
+void deleteProfissional(void);
+void editProfissional(void);
+void readProfissional(void);
 
 void menuProfissionais(void){
 	char op;
@@ -55,35 +54,108 @@ void profissionaisOptions(char op){
 		adicionarProfissional();
 	}
 	else if(op == '2'){
-		//excluir
+		deleteProfissional();
 	}
 	else if(op == '3'){
-		//editar
+		editProfissional();
 	}
 	else if(op == '4'){
 		//porcurar
 	}
 	else{
-		//listar
+		read();
+		getchar();
 	}
+	menuProfissionais();
 }
 
 void adicionarProfissional(void){
-	
+	Profissional func;
+	char validname;
+	scanf("%80[^\n]",func.name);
+	clearBuffer();
+	printf("%s\n",func.name);
+	char validcpf;
+	scanf("%14[^\n]",func.cpf);
+	clearBuffer();
+	printf("%s\n",func.cpf);
+	char valididade;
+	scanf("%d",&func.idade);
+	clearBuffer();
+	printf("%d\n",func.idade);
+	FILE *file;
+	file = fopen("profissional.dat", "ab");
+	fwrite(&func, 1, sizeof(Profissional), file);
+	fclose(file);
 }
 
-void excluirProfissional(void){
-	
+void deleteProfissional(void){
+	FILE *file,*back;
+	Profissional func;
+	file = fopen("profissional.dat", "rb");
+	back = fopen("backprofissional.dat","ab");
+	char nome[81];
+	scanf("%80[^\n]", nome);
+	clearBuffer();
+	while(fread(&func,sizeof(Profissional),1,file)){
+		if(strcmp(func.name,nome)){
+		fwrite(&func,1,sizeof(Profissional),back);
+		}
+	}
+	fclose(file);
+	fclose(back);
+	remove("profissional.dat");
+	rename("backprofissional.dat","profissional.dat");
 }
 
-void editarProfissional(void){
-    
+void editProfissional(void){
+	FILE *file,*back;
+	Profissional func;
+	file = fopen("profissional.dat", "rb");
+	back = fopen("backprofissional.dat","ab");
+	char nome[81];
+	scanf("%80[^\n]", nome);
+	clearBuffer();
+	while(fread(&func,sizeof(Profissional),1,file)){
+		if(strcmp(func.name,nome)){
+		fwrite(&func,1,sizeof(Profissional),back);
+		}
+		else{
+			Profissional func;
+			char validname;
+			scanf("%80[^\n]",func.name);
+			clearBuffer();
+			printf("%s\n",func.name);
+			char validcpf;
+			scanf("%14[^\n]",func.cpf);
+			clearBuffer();
+			printf("%s\n",func.cpf);
+			char valididade;
+			scanf("%d",&func.idade);
+			clearBuffer();
+			printf("%d\n",func.idade);
+			fwrite(&func,1,sizeof(Profissional),back);
+		}
+	}
+	fclose(file);
+	fclose(back);
+	remove("profissional.dat");
+	rename("backprofissional.dat","profissional.dat");
 }
 
-void deletarProfissional(const char* name){
-	
-}
 
-int lenSizeProfissional(void){
-    
+void readProfissional(void){
+	FILE *file;
+	Profissional func;
+	file = fopen("profissional.dat", "rb");
+	while (1) {
+		if (fread(&func, sizeof(Profissional), 1, file)) {
+			printf("%s\n", func.name);
+			printf("%d\n", func.idade);
+			printf("%s\n", func.cpf);
+		} else {
+			break;
+		}
+	}
+	fclose(file);
 }
