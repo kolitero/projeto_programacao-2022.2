@@ -9,18 +9,15 @@ void mainMenu(void){
 	char op;
 	do{
 	clear();
-	printf(" __________________________________________________ \n");
-	printf("|                    sig-clinic                    |\n");
-	printf("|__________________________________________________|\n");
-	printf("|  [0]fechar programa                              |\n");
-	printf("|  [1]gerenciamento de profissionais               |\n");
-	printf("|  [2]gerenciamento de clientes                    |\n");
-	printf("|  [3]gerenciamento de consultas                   |\n");
-	printf("|  [4]relatorio de vendas                          |\n");
-	printf("|  [5]creditos                                     |\n");
-	printf("|                                                  |\n");
-	printf("|                                                  |\n");
-	printf("|__________________________________________________|\n");
+	printTable("                    sig-clinic");
+	printline("  [0]fechar programa");
+	printline("  [1]gerenciamento de profissionais");
+	printline("  [2]gerenciamento de clientes ");
+	printline("  [3]gerenciamento de consultas");
+	printline("  [4]relatorio de vendas");
+	printline("  [5]creditos");
+	printline(" ");
+	printcomplete(" ");
 	scanf("%c",&op);
 	clearBuffer();
 	clear();

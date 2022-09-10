@@ -12,18 +12,14 @@ void menuProfissionais(void){
 	char op;
 	do{
 	clear();
-	printf(" __________________________________________________ \n");
-	printf("|                menu profissionais                |\n");
-	printf("|__________________________________________________|\n");
-	printf("|    [0]voltar ao menu principal                   |\n");
-	printf("|    [1]cadastar profissional                      |\n");
-	printf("|    [2]excluir profissional                       |\n");
-	printf("|    [3]editar profissional                        |\n");
-	printf("|    [4]procurar profissional                      |\n");
-	printf("|    [5]listar profissionais                       |\n");
-	printf("|                                                  |\n");
-	printf("|                                                  |\n");
-	printf("|__________________________________________________|\n");
+	printTable("             menu profissionais");
+	printline("  [0]voltar ao menu principal");
+	printline("  [1]cadastar profissional ");
+	printline("  [2]excluir profissional ");
+	printline("  [3]editar profissiona; ");
+	printline("  [4]buscar profissional ");
+	printline("  [5]listar profissionais ");
+	printcomplete(" ");
 	scanf("%c",&op);
 	clearBuffer();
 	clear();
