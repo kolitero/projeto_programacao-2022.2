@@ -1,28 +1,27 @@
 #include <stdio.h>
 #include "../../header/components.h"
 #include "../../header/util.h"
+#include "../../header/validations.h"
 
-void printName(void);
+
 
 void readName(char* name){
-    char res;
+    char res = 'n';
     do{
         clear();
-        printName();
+        printTable("Digite o nome abaixo:");
         scanf("%50[^\n]",name);
-        clearBuffer();
         clear();
-        printName();
+        clearBuffer();
+        printTable("Digite o nome abaixo:");
         printcomplete(name);
-        printf("|o nome acima confere[S/N]                         |\n");
-        printf("|__________________________________________________|\n");
-        scanf("%c",&res);
+        if(validateName(name)){
+            printcomplete("o nome acima confere[S/N]");
+            scanf("%c",&res);
+        }else{
+            printcomplete("nome invalido");
+            printcomplete("PRESSIONE ENTER PARA PROSSEGUIR");
+        }
         clearBuffer();
     }while(res != 'S');
-}
-
-void printName(){
-    printf(" __________________________________________________ \n");
-    printf("|Digite o nome abaixo:                             |\n");
-    printf("|__________________________________________________|\n");
 }

@@ -2,27 +2,19 @@
 #include "../../header/components.h"
 #include "../../header/util.h"
 
-void printnAndreas(void);
 
 void readAndreas(char* andreas){
     char res;
     do{
         clear();
-        printnAndreas();
+        printTable("Digite o endereco abaixo:");
         scanf("%50[^\n]",andreas);
         clearBuffer();
         clear();
-        printnAndreas();
+        printTable("Digite o endereco abaixo:");
         printcomplete(andreas);
-        printf("|o endereco acima confere[S/N]                         |\n");
-        printf("|__________________________________________________|\n");
+        printcomplete("o endereco acima confere[S/N]");
         scanf("%c",&res);
         clearBuffer();
     }while(res != 'S');
-}
-
-void printnAndreas(){
-    printf(" __________________________________________________ \n");
-    printf("|Digite o endereco abaixo:                            |\n");
-    printf("|__________________________________________________|\n");
 }

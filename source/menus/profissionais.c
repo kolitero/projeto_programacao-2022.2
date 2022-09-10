@@ -12,9 +12,9 @@ void menuProfissionais(void){
 	char op;
 	do{
 	clear();
-    printf(" __________________________________________________ \n");
-    printf("|                menu profissionais                |\n");
-    printf("|__________________________________________________|\n");
+	printf(" __________________________________________________ \n");
+	printf("|                menu profissionais                |\n");
+	printf("|__________________________________________________|\n");
 	printf("|    [0]voltar ao menu principal                   |\n");
 	printf("|    [1]cadastar profissional                      |\n");
 	printf("|    [2]excluir profissional                       |\n");
@@ -23,7 +23,7 @@ void menuProfissionais(void){
 	printf("|    [5]listar profissionais                       |\n");
 	printf("|                                                  |\n");
 	printf("|                                                  |\n");
-    printf("|__________________________________________________|\n");
+	printf("|__________________________________________________|\n");
 	scanf("%c",&op);
 	clearBuffer();
 	clear();
