@@ -3,7 +3,6 @@
 #include "../header/menus.h"
 #include <locale.h>
 
-
 int main(void) {
 	setlocale(LC_ALL,"portuguese");
 	mainMenu();

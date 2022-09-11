@@ -1,3 +1,7 @@
-## Disciplina DCT1106 - ProgramaÃ§Ã£o
+### Disciplina DCT1106 - Programação 
 
-ALUNO DA UFRN/CERES ISAYAN DEIVID NOGUEIRA MONTEIRO 
+Universidade Federal do Rio Grande do Norte
+Centro de Ensino Superior do Seridó
+Departamento de Computação e Tecnologia
+Bacharelado em Sistemas de Informação
+ALUNO ISAYAN DEIVID NOGUEIRA MONTEIRO 

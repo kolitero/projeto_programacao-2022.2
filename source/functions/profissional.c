@@ -5,7 +5,6 @@
 #include "../../header/profissional.h"
 #include "../../header/components.h"
 
-
 typedef struct{
 	char name[51];
 	char cpf[15];
@@ -30,10 +29,10 @@ void addProfissional(void){
 void deleteProfissional(void){
 	FILE *file,*back;
 	Profissional func;
-	file = fopen("profissional.dat", "rb");
-	back = fopen("backprofissional.dat","ab");
 	char nome[51];
 	readName(nome);
+	file = fopen("profissional.dat", "rb");
+	back = fopen("backprofissional.dat","ab");
 	while(fread(&func,sizeof(Profissional),1,file)){
 		if(strcmp(func.name,nome)){
 		fwrite(&func,1,sizeof(Profissional),back);

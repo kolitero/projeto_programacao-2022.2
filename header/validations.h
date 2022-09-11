@@ -1,2 +1,3 @@
 int validateName(char* name);
-int validateNameChar(char ch);
+int validateCPF(char* cpf);
+int validateDate(char* date);

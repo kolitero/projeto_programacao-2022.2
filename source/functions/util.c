@@ -3,8 +3,6 @@
 #include <string.h>
 #include "../../header/util.h"
 
-
-
 void clear(void){
     system("cls||clear");
 }

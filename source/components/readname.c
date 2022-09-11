@@ -3,8 +3,6 @@
 #include "../../header/util.h"
 #include "../../header/validations.h"
 
-
-
 void readName(char* name){
     char res = 'n';
     do{
