@@ -10,19 +10,19 @@ void profissionaisOptions(char op);
 
 void menuProfissionais(void){
 	char op;
+	clear();
 	do{
-	clear();
-	printTable("             menu profissionais");
-	printline("  [0]voltar ao menu principal");
-	printline("  [1]cadastar profissional ");
-	printline("  [2]excluir profissional ");
-	printline("  [3]editar profissiona; ");
-	printline("  [4]buscar profissional ");
-	printline("  [5]listar profissionais ");
-	printcomplete(" ");
-	scanf("%c",&op);
-	clearBuffer();
-	clear();
+		printTable("             menu profissionais");
+		printline("  [0]voltar ao menu principal");
+		printline("  [1]cadastar profissional ");
+		printline("  [2]excluir profissional ");
+		printline("  [3]editar profissiona; ");
+		printline("  [4]buscar profissional ");
+		printline("  [5]listar profissionais ");
+		printcomplete(" ");
+		scanf("%c",&op);
+		clearBuffer();
+		clear();
 	}while(op < 48 || op > 53);
 	profissionaisOptions(op);
 	
