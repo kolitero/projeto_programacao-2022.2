@@ -19,12 +19,12 @@ void menuConsultas(void){
 		scanf("%c",&op);
 		clearBuffer();
 		clear();
-	}while(op < 48 || op > 53);
-	consultasOptions(op);
+		consultasOptions(op);
+	}while(op != '0');
 }
 
 void consultasOptions(char op){
-	if(op == '0'){
+	if(op <= '0' || op > 53 ){
 		return;
 	}
 	else if(op == '1'){
@@ -52,5 +52,4 @@ void consultasOptions(char op){
 		printTable("em progesso");
 		getchar();
 	}
-	menuConsultas();
 }

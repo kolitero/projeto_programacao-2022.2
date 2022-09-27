@@ -19,12 +19,12 @@ void menuClientes(void){
 		scanf("%c",&op);
 		clearBuffer();
 		clear();
-	}while(op < 48 || op > 53);
-	clientesOptions(op);
+		clientesOptions(op);
+	}while(op != '0');
 }
 
 void clientesOptions(char op){
-	if(op == '0'){
+	if(op <= '0' || op > 53 ){
 		return;
 	}
 	else if(op == '1'){
@@ -52,5 +52,4 @@ void clientesOptions(char op){
 		printTable("em progesso");
 		getchar();
 	}
-	menuClientes();
 }

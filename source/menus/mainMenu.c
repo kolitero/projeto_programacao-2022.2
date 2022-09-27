@@ -21,12 +21,12 @@ void mainMenu(void){
 		scanf("%c",&op);
 		clearBuffer();
 		clear();
-	}while(op < 48 || op > 53);
-	mainOptions(op);
+		mainOptions(op);
+	}while(op != '0');
 }
 
 void mainOptions(char op){
-	if(op == '0'){
+	if(op <= '0' || op > 53){
 		return;
 	}
 	else if(op == '1'){
@@ -39,12 +39,10 @@ void mainOptions(char op){
 		menuConsultas();
 	}
 	else if(op == '4'){
-		rendimento();
-		getchar();
+		menuRendimento();
 	}
 	else{
 		creditos();
 		getchar();
 	}
-	mainMenu();
 }

@@ -23,13 +23,13 @@ void menuProfissionais(void){
 		scanf("%c",&op);
 		clearBuffer();
 		clear();
+		profissionaisOptions(op);
 	}while(op < 48 || op > 53);
-	profissionaisOptions(op);
 	
 }
 
 void profissionaisOptions(char op){
-	if(op == '0'){
+	if(op <= 48 || op > 53){
 		return;
 	}
 	else if(op == '1'){
@@ -48,6 +48,5 @@ void profissionaisOptions(char op){
 		readProfissional();
 		getchar();
 	}
-	menuProfissionais();
 }
 
