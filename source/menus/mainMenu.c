@@ -7,8 +7,8 @@ void mainOptions(char op);
 
 void mainMenu(void){
 	char op;
-	clear();
 	do{
+		clear();
 		printTable("                    sig-clinic");
 		printline("  [0]fechar programa");
 		printline("  [1]gerenciamento de profissionais");

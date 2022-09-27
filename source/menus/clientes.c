@@ -8,6 +8,7 @@ void clientesOptions(char op);
 void menuClientes(void){
 	char op;
 	do{
+		clear();
 		printTable("               menu clientes");
 		printline("  [0]voltar ao menu principal");
 		printline("  [1]cadastar cliente ");

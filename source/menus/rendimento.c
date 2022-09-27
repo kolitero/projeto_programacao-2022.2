@@ -10,8 +10,8 @@ void rendimnetoOptions(char op);
 
 void menuRendimento(void){
 	char op;
-	clear();
 	do{
+		clear();
 		printTable("             menu profissionais");
 		printline("  [0]voltar ao menu principal");
 		printline("  [1]relatorio por dia");
@@ -49,6 +49,7 @@ void rendimnetoOptions(char op){
 		getchar();
 	}
 	else{
-		
+		printTable("em progesso");
+		getchar();
 	}
 }

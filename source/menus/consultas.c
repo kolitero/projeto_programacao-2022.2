@@ -8,6 +8,7 @@ void consultasOptions(char op);
 void menuConsultas(void){
 	char op;
 	do{
+		clear();
 		printTable("               menu consultas");
 		printline("  [0]voltar ao menu principal");
 		printline("  [1]cadastar consulta ");

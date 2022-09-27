@@ -10,8 +10,8 @@ void profissionaisOptions(char op);
 
 void menuProfissionais(void){
 	char op;
-	clear();
 	do{
+		clear();
 		printTable("             menu profissionais");
 		printline("  [0]voltar ao menu principal");
 		printline("  [1]cadastar profissional ");
@@ -24,7 +24,7 @@ void menuProfissionais(void){
 		clearBuffer();
 		clear();
 		profissionaisOptions(op);
-	}while(op < 48 || op > 53);
+	}while(op != '0');
 	
 }
 
