@@ -5,13 +5,7 @@
 #include "../../header/profissional.h"
 #include "../../header/components.h"
 
-typedef struct{
-	char name[51];
-	char cpf[15];
-	char email[51];
-	char andreas[51];
-	char birth[11];
-}Profissional;
+
 
 void addProfissional(void){
 	Profissional func;
