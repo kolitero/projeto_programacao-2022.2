@@ -3,9 +3,8 @@ run: all
 	./projeto
 
 all:
-	gcc source/main.c source/menus/*.c source/functions/*.c source/components/*c source/functions/validations/*.c -Wall  -c
-	gcc -Wall *.o -o projeto
-	
+	gcc -Wall `pkg-config --cflags gtk+-3.0` source/main.c source/components/*.c source/functions/*.c  source/components/funcionarios/*.c source/functions/funcionarios/*.c  -o projeto `pkg-config --libs gtk+-3.0`
+
 clean:
 	rm projeto
 	rm *.o

@@ -1,5 +1,4 @@
-void readName(char* name);
-void readCPF(char* cpf);
-void readBirth(char* data);
-void readAndreas(char* andres);
-void readEmail(char* email);
+void create_sidebar(GtkWidget *widget);
+void create_menu_clientes(GtkWidget *btn,GtkWidget *widget,gpointer data);
+void create_menu_funcionarios(GtkWidget *btn,GtkWidget *widget,gpointer data);
+void create_menu_consultas(GtkWidget *btn,GtkWidget *widget,gpointer data);
