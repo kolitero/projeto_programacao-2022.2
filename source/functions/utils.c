@@ -2,6 +2,8 @@
 #include "../../header/utils.h"
 #include <stdio.h>
 
+//deletar tudo tirando o primeiro item
+
 void delete_screen(GtkWidget *widget){
 	GList *children, *iter;
 	children = gtk_container_get_children(GTK_CONTAINER(widget));
@@ -13,6 +15,8 @@ void delete_screen(GtkWidget *widget){
 	g_list_free(children);
 }
 
+//deletar tudo
+
 void delete_all(GtkWidget *widget){
 	GList *children, *iter;
 	children = gtk_container_get_children(GTK_CONTAINER(widget));
@@ -21,6 +25,8 @@ void delete_all(GtkWidget *widget){
 	}
 	g_list_free(children);
 }
+
+//mudar o focus se for enter
 
 void enter_detector(GtkWidget *widget,GdkEventKey event,GtkWidget *container,gpointer data){
 	if(event.keyval == GDK_KEY_Return){

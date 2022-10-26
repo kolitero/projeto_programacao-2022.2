@@ -5,9 +5,8 @@
 //criar um menu que chamar as telas consultas de marcar,cancelar,editar,procurar e listar 
 
 void create_menu_consultas(GtkWidget *btn,GtkWidget *widget,gpointer data){
-	
+	//deletar a tela secundaria anterior
 	delete_screen(widget);
-
 	//definicao dos ponteiros
 	GtkWidget *box;
 	GtkWidget *frame;
@@ -44,8 +43,6 @@ void create_menu_consultas(GtkWidget *btn,GtkWidget *widget,gpointer data){
 	button = gtk_button_new_with_label("listar todos as consultas");
 	gtk_box_pack_start(GTK_BOX(box), button,TRUE,TRUE,0);
 	gtk_button_set_relief(GTK_BUTTON(button),GTK_RELIEF_NONE);
-	
-
+	//mostrar tudo dentro de frame
 	gtk_widget_show_all(frame);
-	
 } 

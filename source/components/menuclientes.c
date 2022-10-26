@@ -5,9 +5,8 @@
 //criar um menu que chamar as telas cliente de cadastrar,deletar,editar,procurar e listar
 
 void create_menu_clientes(GtkWidget *btn,GtkWidget *widget,gpointer data){
-	
+	//deletar  a tela secundaria anterior
 	delete_screen(widget);
-	
 	//definicao dos ponteiros
 	GtkWidget *box;
 	GtkWidget *frame;

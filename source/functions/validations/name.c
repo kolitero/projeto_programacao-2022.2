@@ -3,7 +3,7 @@
 
 
 int validateName(char* name){
-    char chars[] = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÂÊÔÇÀÃÕ.záéíóúâêôçàãõ";
+    char chars[] = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÂÊÔÇÀÃÕ.áéíóúâêôçàãõ";
     int tam  = strlen(name);
     int v;
     int charlen = strlen(chars);

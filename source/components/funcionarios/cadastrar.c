@@ -2,31 +2,26 @@
 #include "../../../header/components.h"
 #include "../../../header/utils.h"
 #include "../../../header/funcionarios.h"
+
 // tela de casdastro de funcionario
 
-
-void delete_values_funcionario(GtkWidget *widget,Entry *entrys,gpointer data);
-
 void cadastar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
-	
+	//deletar o menu funcionario
 	delete_screen(widget);
-
-	Entry *entrys;
-	entrys = malloc(sizeof(Entry));
-	GtkWidget *entry[6];
-	GtkWidget *frame[9];
+	//definicao dos ponteiros
+	EntryFuncionario *entrys;
+	entrys = malloc(sizeof(EntryFuncionario));
+	GtkWidget *frame[7];
 	GtkWidget *hbox[4];
 	GtkWidget *vbox;
 	GtkWidget *label;
 	GtkWidget *button;
-
+	//atribuindo valores aos ponteiros
 	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10);
-
 	hbox[0] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10);
 	hbox[1] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10);
 	hbox[2] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10);
 	hbox[3] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10);
-
 	frame[0] = gtk_frame_new(NULL);
 	frame[1] = gtk_frame_new("nome:");
 	frame[2] = gtk_frame_new("cpf:");
@@ -34,30 +29,24 @@ void cadastar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
 	frame[4] = gtk_frame_new("email:");
 	frame[5] = gtk_frame_new("data de nascimento:");
 	frame[6] = gtk_frame_new("telefone:");
-
-	entry[0] = gtk_entry_new();
-	entry[1] = gtk_entry_new();
-	entry[2] = gtk_entry_new();
-	entry[3] = gtk_entry_new();
-	entry[4] = gtk_entry_new();
-	entry[5] = gtk_entry_new();
-
-
-
+	entrys = malloc(sizeof(EntryFuncionario));
+	entrys->name  = gtk_entry_new();
+	entrys->cpf = gtk_entry_new();
+	entrys->andreas = gtk_entry_new();
+	entrys->email = gtk_entry_new();
+	entrys->birth = gtk_entry_new();
+	entrys->phone = gtk_entry_new();
 	label = gtk_label_new("cadastro de funcionário");
-
 	button = gtk_button_new_with_label("cadastrar");
-
-
-	gtk_entry_set_has_frame(GTK_ENTRY(entry[0]),FALSE);
-	gtk_entry_set_has_frame(GTK_ENTRY(entry[1]),FALSE);
-	gtk_entry_set_has_frame(GTK_ENTRY(entry[2]),FALSE);
-	gtk_entry_set_has_frame(GTK_ENTRY(entry[3]),FALSE);
-	gtk_entry_set_has_frame(GTK_ENTRY(entry[4]),FALSE);
-	gtk_entry_set_has_frame(GTK_ENTRY(entry[5]),FALSE);
+	//configurando propriedades
+	gtk_entry_set_has_frame(GTK_ENTRY(entrys->name),FALSE);
+	gtk_entry_set_has_frame(GTK_ENTRY(entrys->cpf),FALSE);
+	gtk_entry_set_has_frame(GTK_ENTRY(entrys->andreas),FALSE);
+	gtk_entry_set_has_frame(GTK_ENTRY(entrys->email),FALSE);
+	gtk_entry_set_has_frame(GTK_ENTRY(entrys->birth),FALSE);
+	gtk_entry_set_has_frame(GTK_ENTRY(entrys->phone),FALSE);
 	gtk_label_set_justify(GTK_LABEL(label),GTK_JUSTIFY_CENTER);
-
-
+	//composicao dos widgets
 	gtk_box_pack_start(GTK_BOX(widget),frame[0],TRUE,TRUE,20);
 	gtk_container_add(GTK_CONTAINER(frame[0]),vbox);
 	gtk_box_pack_start(GTK_BOX(vbox), label,FALSE,FALSE,20);
@@ -72,34 +61,27 @@ void cadastar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
 	gtk_box_pack_start(GTK_BOX(hbox[2]),frame[5],TRUE,TRUE,20);
 	gtk_box_pack_start(GTK_BOX(hbox[2]),frame[6],TRUE,TRUE,20);
 	gtk_box_pack_end(GTK_BOX(hbox[3]),button,FALSE,FALSE,20);
-	gtk_container_add(GTK_CONTAINER(frame[1]),entry[0]);
-	gtk_container_add(GTK_CONTAINER(frame[2]),entry[1]);
-	gtk_container_add(GTK_CONTAINER(frame[3]),entry[2]);
-	gtk_container_add(GTK_CONTAINER(frame[4]),entry[3]);
-	gtk_container_add(GTK_CONTAINER(frame[5]),entry[4]);
-	gtk_container_add(GTK_CONTAINER(frame[6]),entry[5]);
-
-	entrys->name = entry[0];
-	entrys->cpf = entry[1];
-	entrys->andreas = entry[2];
-	entrys->email = entry[3];
-	entrys->birth = entry[4];
-	entrys->phone = entry[5];
-
+	gtk_container_add(GTK_CONTAINER(frame[1]),entrys->name );
+	gtk_container_add(GTK_CONTAINER(frame[2]),entrys->cpf);
+	gtk_container_add(GTK_CONTAINER(frame[3]),entrys->andreas);
+	gtk_container_add(GTK_CONTAINER(frame[4]),entrys->email);
+	gtk_container_add(GTK_CONTAINER(frame[5]),entrys->birth);
+	gtk_container_add(GTK_CONTAINER(frame[6]),entrys->phone);
 	//signal
-	g_signal_connect (G_OBJECT(entry[0]),"key_release_event",G_CALLBACK(enter_detector),entry[1]);
-	g_signal_connect (G_OBJECT(entry[1]),"key_release_event",G_CALLBACK(enter_detector),entry[2]);
-	g_signal_connect (G_OBJECT(entry[2]),"key_release_event",G_CALLBACK(enter_detector),entry[3]);
-	g_signal_connect (G_OBJECT(entry[3]),"key_release_event",G_CALLBACK(enter_detector),entry[4]);
-	g_signal_connect (G_OBJECT(entry[4]),"key_release_event",G_CALLBACK(enter_detector),entry[5]);
-	g_signal_connect (G_OBJECT(entry[5]),"key_release_event",G_CALLBACK(enter_detector),button);
+	g_signal_connect (G_OBJECT(entrys->name),"key_release_event",G_CALLBACK(enter_detector),entrys->cpf);
+	g_signal_connect (G_OBJECT(entrys->cpf),"key_release_event",G_CALLBACK(enter_detector),entrys->andreas);
+	g_signal_connect (G_OBJECT(entrys->andreas),"key_release_event",G_CALLBACK(enter_detector),entrys->email);
+	g_signal_connect (G_OBJECT(entrys->email),"key_release_event",G_CALLBACK(enter_detector),entrys->birth);
+	g_signal_connect (G_OBJECT(entrys->birth),"key_release_event",G_CALLBACK(enter_detector),entrys->phone);
+	g_signal_connect (G_OBJECT(entrys->phone),"key_release_event",G_CALLBACK(enter_detector),button);
 	g_signal_connect (G_OBJECT(button),"clicked",G_CALLBACK(get_value_cadastro),entrys);
 	g_signal_connect (G_OBJECT(frame[0]),"destroy",G_CALLBACK(delete_values_funcionario),entrys);
-
+	//mostrar todos widgets dentro de frame[0]
 	gtk_widget_show_all(frame[0]);
-	
 } 
 
-void delete_values_funcionario(GtkWidget *widget,Entry *entrys,gpointer data){
+//liberar a struct com ponteiros dos entry
+
+void delete_values_funcionario(GtkWidget *widget,EntryFuncionario *entrys,gpointer data){
 	free(entrys);
 }

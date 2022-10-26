@@ -10,7 +10,6 @@ void create_sidebar(GtkWidget *widget){
 	GtkWidget *frame;
 	GtkWidget *button;
 	GtkWidget *label;
-
 	//frame que fica dentro de um box horizontal
 	frame = gtk_frame_new(NULL);
 	gtk_box_pack_start(GTK_BOX(widget),frame,FALSE,FALSE,0);
@@ -38,5 +37,4 @@ void create_sidebar(GtkWidget *widget){
 	label = gtk_label_new("\n\nALUNO DO CURSO DE\nBACHARELADO EM\nSISTEMAS DE INFORMAÇÃO\nUFRN/CERES\n\t ISAYAN DEIVID N. MONTEIRO \t\n20220043737");
 	gtk_label_set_justify(GTK_LABEL(label),GTK_JUSTIFY_CENTER);
 	gtk_box_pack_start(GTK_BOX(box), label,FALSE,FALSE,20);
-
 } 

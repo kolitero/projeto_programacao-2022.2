@@ -1,8 +1,7 @@
 #include <gtk/gtk.h>
 #include "../header/components.h"
 
-
-
+//funcao ativada quando o programa e iniciado
 
 void init(GtkApplication *app,gpointer user_data){
 	//janela do programa
@@ -33,7 +32,6 @@ int main(int argc,char **argv) {
 	g_signal_connect(app,"activate",G_CALLBACK(init),NULL);
 	status = g_application_run (G_APPLICATION (app), argc, argv);
   	g_object_unref (app);
-
   	return status;
 }
 
