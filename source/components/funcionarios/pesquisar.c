@@ -5,7 +5,7 @@
 
 // tela de pesquisa
 
-void cadastar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
+void pesquisar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
 	//deletar o menu funcionario
 	delete_screen(widget);
 	//definindo ponteiros
