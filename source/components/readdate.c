@@ -3,16 +3,17 @@
 #include "../../header/util.h"
 #include "../../header/validations.h"
 
-void readBirth(char* data){
+
+void readDate(char* data){
     char res = 'n';
     do{
         clear();
-        printStart("Digite a data de nascimento abaixo em formato:");
+        printStart("       Digite a data abaixo em formato:");
         printcomplete("             00/00/0000");
         scanf("%10[^\n]",data);
         clearBuffer();
         clear();
-        printline("Digite a data de nascimento abaixo em formato:");
+        printline("        Digite a data abaixo em formato:");
         printcomplete("             DD/MM/AAAA");
         printcomplete(data);
         if(validateDate(data)){

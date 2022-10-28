@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "../../header/menus.h"
 #include "../../header/util.h"
+#include "../../header/cliente.h"
+
 
 void clientesOptions(char op);
 
@@ -30,27 +32,27 @@ void clientesOptions(char op){
 	}
 	else if(op == '1'){
 		//cadastrar cliente
-		printTable("em progesso");
+		addCliente();
 		getchar();
 	}
 	else if(op == '2'){
 		//excluir cliente
-		printTable("em progesso");
+		deleteCliente();
 		getchar();
 	}
 	else if(op == '3'){
 		//editar cliente
-		printTable("em progesso");
+		editCliente();
 		getchar();
 	}
 	else if(op == '4'){
 		//buscar
-		printTable("em progesso");
+		searchCliente();
 		getchar();
 	}
 	else{
 		//listar
-		printTable("em progesso");
+		readCliente();
 		getchar();
 	}
 }

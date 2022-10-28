@@ -111,8 +111,8 @@ void readProfissional(void){
 	FILE *file;
 	Profissional func;
 	file = fopen("profissional.dat", "rb");
-	while (1) {
-		if (fread(&func, sizeof(Profissional), 1, file)) {
+	if(file){
+		while (fread(&func, sizeof(Profissional), 1, file)) {
 			putchar('\n');
 			printTable(func.cpf);
 			printcomplete("nome:");
@@ -123,10 +123,8 @@ void readProfissional(void){
 			printcomplete(func.birth);
 			printcomplete("endereco:");
 			printcomplete(func.andreas);
-		} else {
-			break;
 		}
+		fclose(file);
 	}
-	fclose(file);
 }
 

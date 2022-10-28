@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../../header/menus.h"
 #include "../../header/util.h"
+#include "../../header/consulta.h"
 
 void consultasOptions(char op);
 
@@ -30,27 +31,27 @@ void consultasOptions(char op){
 	}
 	else if(op == '1'){
 		//cadastrar
-		printTable("em progesso");
+		addConsulta();
 		getchar();
 	}
 	else if(op == '2'){
 		//excluir 
-		printTable("em progesso");
+		deleteConsulta();
 		getchar();
 	}
 	else if(op == '3'){
 		//editar 
-		printTable("em progesso");
+		editConsulta();
 		getchar();
 	}
 	else if(op == '4'){
 		//buscar
-		printTable("em progesso");
+		searchConsulta();
 		getchar();
 	}
 	else{
 		//listar
-		printTable("em progesso");
+		readConsulta();
 		getchar();
 	}
 }

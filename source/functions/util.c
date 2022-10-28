@@ -28,8 +28,18 @@ void printTable(char* string){
 
 void printline(char* string){
     putchar('|');
-    printf("%s",string);
-    for(int len  = strlen(string);len < 50;len++){
+    int x = 0;
+    int v = 0;
+    while(string[x]){
+        putchar(string[x]);
+        if(string[x] < 0){
+            x++;
+            putchar(string[x]);
+        }
+        v++;
+        x++;
+    }
+    for(int len = v;len < 50;len++){
         putchar(' ');
     }
     putchar('|');

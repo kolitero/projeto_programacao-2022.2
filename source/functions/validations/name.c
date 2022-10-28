@@ -3,19 +3,19 @@
 
 
 int validateName(char* name){
-    char chars[] = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÂÊÔÇÀÃÕ.záéíóúâêôçàãõ";
-    int tam  = strlen(name);
-    int v;
-    int charlen = strlen(chars);
-    for(int x = 0;x < tam;x++){
-        v = 0;
-        for(int y = 0;y < charlen;y++){
-            if(name[x] == chars[y]){
-                v++;
+    int x = 0;
+    while(name[x]){
+        x++;
+        if(name[x] == -61){
+            if (name[x++] < -69){
+                x++;
             }
+        } 
+        else if((name[x] >= 65 && name[x] <= 90) || (name[x] >= 97 && name[x] <= 122) || name[x] == 32){
+            x++;
         }
-        if(v < 1){
-                return 0;
+        else{
+            return 0;
         }
     }
     return 1;
