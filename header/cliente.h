@@ -10,4 +10,5 @@ typedef struct{
 	char email[51];
 	char phone[21];
 	char birth[11];
+	char existence;
 }Cliente;

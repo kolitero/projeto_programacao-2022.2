@@ -14,6 +14,7 @@ void addCliente(void){
 	readPhone(client.phone);
 	readEmail(client.email);
 	readBirth(client.birth);
+	client.existence = 'y';
 	FILE *file;
 	file = fopen("Cliente.dat", "ab");
 	fwrite(&client, 1, sizeof(Cliente), file);

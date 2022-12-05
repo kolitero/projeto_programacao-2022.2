@@ -14,6 +14,7 @@ void addProfissional(void){
 	readAndreas(func.andreas);
 	readEmail(func.email);
 	readBirth(func.birth);
+	func.existence = 'y';
 	FILE *file;
 	file = fopen("profissional.dat", "ab");
 	fwrite(&func, 1, sizeof(Profissional), file);

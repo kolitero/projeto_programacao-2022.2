@@ -12,7 +12,7 @@ void menuRendimento(void){
 	char op;
 	do{
 		clear();
-		printTable("             menu profissionais");
+		printTable("             menu relatorio");
 		printline("  [0]voltar ao menu principal");
 		printline("  [1]relatorio por data");
 		printline("  [2]relatorio por cliente ");
