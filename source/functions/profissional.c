@@ -29,7 +29,7 @@ void deleteProfissional(void){
 	file = fopen("profissional.dat", "rb");
 	back = fopen("backprofissional.dat","ab");
 	while(fread(&func,sizeof(Profissional),1,file)){
-		if(strcmp(func.name,nome)){
+		if(!strcmp(func.name,nome)){
 		fwrite(&func,1,sizeof(Profissional),back);
 		}
 	}
@@ -47,7 +47,7 @@ void editProfissional(void){
 	char name[51];
 	readName(name);
 	while(fread(&func,sizeof(Profissional),1,file)){
-		if(strcmp(func.name,name)){
+		if(!strcmp(func.name,name)){
 		fwrite(&func,1,sizeof(Profissional),back);
 		}
 		else{

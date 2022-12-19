@@ -29,7 +29,7 @@ void deleteCliente(void){
 	file = fopen("Cliente.dat", "rb");
 	back = fopen("backCliente.dat","ab");
 	while(fread(&client,sizeof(Cliente),1,file)){
-		if(strcmp(client.name,nome)){
+		if(!strcmp(client.name,nome)){
 		fwrite(&client,1,sizeof(Cliente),back);
 		}
 	}
@@ -47,7 +47,7 @@ void editCliente(void){
 	char name[51];
 	readName(name);
 	while(fread(&client,sizeof(Cliente),1,file)){
-		if(strcmp(client.name,name)){
+		if(!strcmp(client.name,name)){
 		fwrite(&client,1,sizeof(Cliente),back);
 		}
 		else{

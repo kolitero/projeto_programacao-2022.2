@@ -28,7 +28,7 @@ void deleteConsulta(void)
     back = fopen("backConsulta.dat", "ab");
     while (fread(&consult, sizeof(Consulta), 1, file))
     {
-        if (strcmp(consult.name, nome))
+        if (!strcmp(consult.name, nome))
         {
             fwrite(&consult, 1, sizeof(Consulta), back);
         }
@@ -49,7 +49,7 @@ void editConsulta(void)
     readName(name);
     while (fread(&consult, sizeof(Consulta), 1, file))
     {
-        if (strcmp(consult.name, name))
+        if (!strcmp(consult.name, name))
         {
             fwrite(&consult, 1, sizeof(Consulta), back);
         }
@@ -128,7 +128,7 @@ void readConsulta(void)
 }
 
 void arquivarConsulta(void){
-    FILE *file, *back;
+    FILE *file, *back, *pg;
     Consulta consult;
     Pagamento pag;
     char cpf[15];
@@ -138,20 +138,22 @@ void arquivarConsulta(void){
     readDate(date);
     readPrice(value);
     file = fopen("Consulta.dat", "rb");
-    pg = open("pagamentos.dat", "ab")
+    pg = fopen("pagamentos.dat", "ab");
     back = fopen("backConsulta.dat", "ab");
     while (fread(&consult, sizeof(Consulta), 1, file))
     {
-        if (strcmp(consult.cpf, cpf) && strcmp(consult.date, date))
+        if (!strcmp(consult.cpf, cpf) && !strcmp(consult.date, date))
         {
-            pag.cpf = consult.cpf;
-            pag.date = consult.date;
-            pag.doctor = consult.doctor;
-            pag.value = value;
-            fwirte(&pag,1,sizeof(Pagamento),pg);
+            strcpy(pag.cpf,consult.cpf);
+            strcpy(pag.date , consult.date);
+            strcpy(pag.doctor , consult.doctor);
+            strcpy(pag.value , value);
+            fwrite(&pag,1,sizeof(Pagamento),pg);
+        }else{
             fwrite(&consult, 1, sizeof(Consulta), back);
         }
     }
+    fclose(pg);
     fclose(file);
     fclose(back);
     remove("Consulta.dat");
