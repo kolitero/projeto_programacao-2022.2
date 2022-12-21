@@ -17,6 +17,7 @@ void menuConsultas(void){
 		printline("  [3]editar consulta ");
 		printline("  [4]buscar consulta ");
 		printline("  [5]listar consulta ");
+		printline("  [6]pagar consulta ");
 		printcomplete(" ");
 		scanf("%c",&op);
 		clearBuffer();
@@ -26,7 +27,7 @@ void menuConsultas(void){
 }
 
 void consultasOptions(char op){
-	if(op <= '0' || op > 53 ){
+	if(op <= '0' || op > 54 ){
 		return;
 	}
 	else if(op == '1'){
@@ -49,9 +50,14 @@ void consultasOptions(char op){
 		searchConsulta();
 		getchar();
 	}
+	else if(op == '5'){
+		//buscar
+		readConsulta();
+		getchar();
+	}
 	else{
 		//listar
-		readConsulta();
+		arquivarConsulta();
 		getchar();
 	}
 }

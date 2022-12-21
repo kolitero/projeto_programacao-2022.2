@@ -11,6 +11,7 @@ void addConsulta(void)
     readName(consult.name);
     readCPF(consult.cpf);
     readPhone(consult.phone);
+    readDate(consult.date);
     readCPF(consult.doctor);
     FILE *file;
     file = fopen("Consulta.dat", "ab");
@@ -139,7 +140,8 @@ void arquivarConsulta(void){
     readPrice(value);
     file = fopen("Consulta.dat", "rb");
     pg = fopen("pagamentos.dat", "ab");
-    back = fopen("backConsulta.dat", "ab");
+    back = fopen("backConsulta.dat", "ab");0
+    
     while (fread(&consult, sizeof(Consulta), 1, file))
     {
         if (!strcmp(consult.cpf, cpf) && !strcmp(consult.date, date))

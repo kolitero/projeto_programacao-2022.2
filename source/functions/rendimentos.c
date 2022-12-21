@@ -12,6 +12,10 @@ void rendimentocliente(void){
     FILE *file;
     readCPF(cpf);
     file = fopen("pagamentos.dat","rb");
+    if(!file){
+        printTable("ERRO AO ABRIR ARQUIVO");
+        exit(1);
+    }
     while (fread(&pag,sizeof(pag),1,file))
     {
         if(!strcmp(pag.cpf,cpf)){
@@ -32,6 +36,10 @@ void rendimentomedico(void){
     FILE *file;
     readCPF(cpf);
     file = fopen("pagamentos.dat","rb");
+    if(!file){
+        printTable("ERRO AO ABRIR ARQUIVO");
+        exit(1);
+    }
     while (fread(&pag,sizeof(pag),1,file))
     {
         if(!strcmp(pag.cpf,cpf)){
