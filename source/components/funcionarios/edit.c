@@ -3,11 +3,8 @@
 #include "../../../header/utils.h"
 #include "../../../header/funcionarios.h"
 
-// tela de casdastro de funcionario
 
-void cadastar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
-	//deletar o menu funcionario
-	delete_screen(widget);
+void editar_funcionario(GtkWidget *widget,Funcionario func){
 	//definicao dos ponteiros
 	EntryFuncionario *entrys;
 	entrys = malloc(sizeof(EntryFuncionario));
@@ -31,21 +28,26 @@ void cadastar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
 	frame[6] = gtk_frame_new("telefone:");
 	entrys = malloc(sizeof(EntryFuncionario));
 	entrys->name  = gtk_entry_new();
-	entrys->cpf = gtk_entry_new();
+	entrys->cpf = gtk_label_new(func.cpf);
 	entrys->andreas = gtk_entry_new();
 	entrys->email = gtk_entry_new();
 	entrys->birth = gtk_entry_new();
 	entrys->phone = gtk_entry_new();
-	label = gtk_label_new("cadastro de funcionário");
-	button = gtk_button_new_with_label("cadastrar");
+	label = gtk_label_new("editar funcionário");
+	button = gtk_button_new_with_label("editar");
 	//configurando propriedades
 	gtk_entry_set_has_frame(GTK_ENTRY(entrys->name),FALSE);
-	gtk_entry_set_has_frame(GTK_ENTRY(entrys->cpf),FALSE);
 	gtk_entry_set_has_frame(GTK_ENTRY(entrys->andreas),FALSE);
 	gtk_entry_set_has_frame(GTK_ENTRY(entrys->email),FALSE);
 	gtk_entry_set_has_frame(GTK_ENTRY(entrys->birth),FALSE);
 	gtk_entry_set_has_frame(GTK_ENTRY(entrys->phone),FALSE);
 	gtk_label_set_justify(GTK_LABEL(label),GTK_JUSTIFY_CENTER);
+	//setando os valores base
+	gtk_entry_set_text(GTK_ENTRY(entrys->name),func.name);
+	gtk_entry_set_text(GTK_ENTRY(entrys->andreas),func.andreas);
+	gtk_entry_set_text(GTK_ENTRY(entrys->email),func.email);
+	gtk_entry_set_text(GTK_ENTRY(entrys->birth),func.birth);
+	gtk_entry_set_text(GTK_ENTRY(entrys->phone),func.phone);
 	//composicao dos widgets
 	gtk_box_pack_start(GTK_BOX(widget),frame[0],TRUE,TRUE,20);
 	gtk_container_add(GTK_CONTAINER(frame[0]),vbox);
@@ -68,20 +70,13 @@ void cadastar_funcionario(GtkWidget *btn,GtkWidget *widget,gpointer data){
 	gtk_container_add(GTK_CONTAINER(frame[5]),entrys->birth);
 	gtk_container_add(GTK_CONTAINER(frame[6]),entrys->phone);
 	//signal
-	g_signal_connect (G_OBJECT(entrys->name),"key_release_event",G_CALLBACK(enter_detector),entrys->cpf);
-	g_signal_connect (G_OBJECT(entrys->cpf),"key_release_event",G_CALLBACK(enter_detector),entrys->andreas);
+	g_signal_connect (G_OBJECT(entrys->name),"key_release_event",G_CALLBACK(enter_detector),entrys->andreas);
 	g_signal_connect (G_OBJECT(entrys->andreas),"key_release_event",G_CALLBACK(enter_detector),entrys->email);
 	g_signal_connect (G_OBJECT(entrys->email),"key_release_event",G_CALLBACK(enter_detector),entrys->birth);
 	g_signal_connect (G_OBJECT(entrys->birth),"key_release_event",G_CALLBACK(enter_detector),entrys->phone);
 	g_signal_connect (G_OBJECT(entrys->phone),"key_release_event",G_CALLBACK(enter_detector),button);
-	g_signal_connect (G_OBJECT(button),"clicked",G_CALLBACK(cadastar_value_funcionario),entrys);
+	g_signal_connect (G_OBJECT(button),"clicked",G_CALLBACK(edit_value_funcionario),entrys);
 	g_signal_connect (G_OBJECT(frame[0]),"destroy",G_CALLBACK(delete_values_funcionario),entrys);
 	//mostrar todos widgets dentro de frame[0]
 	gtk_widget_show_all(frame[0]);
 } 
-
-//liberar a struct com ponteiros dos entry
-
-void delete_values_funcionario(GtkWidget *widget,EntryFuncionario *entrys,gpointer data){
-	free(entrys);
-}

@@ -1,5 +1,7 @@
 #include <gtk/gtk.h>
 #include "../header/components.h"
+#include "../header/utils.h"
+
 
 //funcao ativada quando o programa e iniciado
 

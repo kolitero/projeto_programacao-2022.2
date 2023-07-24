@@ -29,8 +29,12 @@ void delete_all(GtkWidget *widget){
 //mudar o focus se for enter
 
 void enter_detector(GtkWidget *widget,GdkEventKey event,GtkWidget *container,gpointer data){
-	if(event.keyval == GDK_KEY_Return){
+	if(event.keyval == GDK_KEY_Return || event.keyval == 32765){
 		gtk_widget_set_can_focus(GTK_WIDGET(container),TRUE);
 		gtk_widget_grab_focus(GTK_WIDGET(container));
 	}
+}
+//free
+void free_widget(GtkWidget *widget,void *var,gpointer data){
+	free(var);
 }

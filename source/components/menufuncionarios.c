@@ -36,15 +36,19 @@ void create_menu_funcionarios(GtkWidget *btn,GtkWidget *widget,gpointer data){
 	button = gtk_button_new_with_label("deletar funcionário");
 	gtk_box_pack_start(GTK_BOX(box), button,TRUE,TRUE,0);
 	gtk_button_set_relief(GTK_BUTTON(button),GTK_RELIEF_NONE);
+	g_signal_connect(button,"clicked",G_CALLBACK(delete_funcionario),widget);
 	button = gtk_button_new_with_label("editar funcionários");
 	gtk_box_pack_start(GTK_BOX(box), button,TRUE,TRUE,0);
 	gtk_button_set_relief(GTK_BUTTON(button),GTK_RELIEF_NONE);
+	g_signal_connect(button,"clicked",G_CALLBACK(pesquisar_funcionario),widget);
 	button = gtk_button_new_with_label("procurar funcionários");
 	gtk_box_pack_start(GTK_BOX(box), button,TRUE,TRUE,0);
 	gtk_button_set_relief(GTK_BUTTON(button),GTK_RELIEF_NONE);
+	g_signal_connect(button,"clicked",G_CALLBACK(show_funcionario),widget);
 	button = gtk_button_new_with_label("listar todos os funcionários");
 	gtk_box_pack_start(GTK_BOX(box), button,TRUE,TRUE,0);
 	gtk_button_set_relief(GTK_BUTTON(button),GTK_RELIEF_NONE);
+	g_signal_connect(button,"clicked",G_CALLBACK(show_all_funcionario),widget);
 	//mostrar tudo dentro do frame
 	gtk_widget_show_all(frame);
 } 
